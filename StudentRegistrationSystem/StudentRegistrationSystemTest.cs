@@ -8,6 +8,7 @@ namespace StudentRegistrationSystem
 {
     internal class StudentRegistrationSystemTest
     {       
+        //lists for storing the student,courses ,faculties programs and enrolment information
 
         private List<Student> students = new List<Student>(CollegeData.studentData());
         private List<Course> courses = new List<Course>(CollegeData.courseData());
@@ -18,6 +19,8 @@ namespace StudentRegistrationSystem
         static void Main(string[] args)
         {
             StudentRegistrationSystemTest strs = new StudentRegistrationSystemTest();
+            //an ifinite loop for repeatedly displaying menu to the user asking user for their choice
+
             while (true)
             {
                 Console.WriteLine("1. Add Student");
@@ -98,18 +101,43 @@ namespace StudentRegistrationSystem
 
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
+             while (string.IsNullOrEmpty(firstName))
+            {
+                Console.WriteLine("The FirstName should not be empty");
+                firstName = Console.ReadLine();
+            }
 
             Console.Write("Enter Last Name: ");
             string lastName = Console.ReadLine();
+              while (string.IsNullOrEmpty(lastName))
+            {
+                Console.WriteLine("The LastName should not be empty");
+                lastName = Console.ReadLine();
+            }
 
             Console.Write("Enter Email: ");
             string email = Console.ReadLine();
+             while (string.IsNullOrEmpty(email))
+            {
+                Console.WriteLine("The Email should not be empty");
+                email = Console.ReadLine();
+            
 
             Console.Write("Enter Phone Number: ");
             string phoneNumber = Console.ReadLine();
+            while (string.IsNullOrEmpty(phoneNumber))
+            {
+                Console.WriteLine("The Program code should not be empty");
+                phoneNumber = Console.ReadLine();
+            }
 
             Console.Write("Enter Program Code: ");
             string programCode = Console.ReadLine();
+             while (string.IsNullOrEmpty(programCode))
+            {
+                Console.WriteLine("The FirstName should not be empty");
+                programCode = Console.ReadLine();
+            }
 
             Student student = new Student(studentId, firstName, lastName, email, phoneNumber, programCode);
             students.Add(student);
