@@ -37,10 +37,10 @@ namespace StudentRegistrationSystem
                 Console.WriteLine("12. Display Courses Taught by a Faculty");
                 Console.WriteLine("13. Display All Students in a Program");
                 Console.WriteLine("0. Exit");
-
+               //reading choice from the user
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
-
+           //a switch case for processing the user choice
                 switch (choice)
                 {
                     case "1":
@@ -93,14 +93,23 @@ namespace StudentRegistrationSystem
                 Console.WriteLine();
             }
         }
+//funtion to add the student details
 
         private void AddStudent()
         {
             Console.Write("Enter Student ID: ");
             int studentId = int.Parse(Console.ReadLine());
+            //validation using while loop
+            while (studentId <= 0)
+            {
+                Console.WriteLine("The student id is invalid");
+                studentId = Int32.Parse(Console.ReadLine());
+
+            }
 
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
+            //validation using while loop
              while (string.IsNullOrEmpty(firstName))
             {
                 Console.WriteLine("The FirstName should not be empty");
@@ -109,6 +118,7 @@ namespace StudentRegistrationSystem
 
             Console.Write("Enter Last Name: ");
             string lastName = Console.ReadLine();
+            //validation using while loop
               while (string.IsNullOrEmpty(lastName))
             {
                 Console.WriteLine("The LastName should not be empty");
@@ -117,6 +127,7 @@ namespace StudentRegistrationSystem
 
             Console.Write("Enter Email: ");
             string email = Console.ReadLine();
+            //validation using while loop
              while (string.IsNullOrEmpty(email))
             {
                 Console.WriteLine("The Email should not be empty");
@@ -125,6 +136,8 @@ namespace StudentRegistrationSystem
 
             Console.Write("Enter Phone Number: ");
             string phoneNumber = Console.ReadLine();
+           //validation using while loop
+            
             while (string.IsNullOrEmpty(phoneNumber))
             {
                 Console.WriteLine("The Program code should not be empty");
@@ -133,6 +146,7 @@ namespace StudentRegistrationSystem
 
             Console.Write("Enter Program Code: ");
             string programCode = Console.ReadLine();
+            //validation using while loop
              while (string.IsNullOrEmpty(programCode))
             {
                 Console.WriteLine("The FirstName should not be empty");
@@ -149,15 +163,39 @@ namespace StudentRegistrationSystem
         {
             Console.Write("Enter Course Code: ");
             string courseCode = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(courseCode))
+            {
+                Console.WriteLine("The course code should not be empty");
+                courseCode = Console.ReadLine();
+            }
 
             Console.Write("Enter Course Name: ");
             string courseName = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(courseName))
+            {
+                Console.WriteLine("The course name should not be empty");
+                courseName = Console.ReadLine();
+            }
 
             Console.Write("Enter Faculty ID: ");
             string facultyId = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(facultyId))
+            {
+                Console.WriteLine("The faculty id should not be empty");
+                facultyId = Console.ReadLine();
+            }
 
             Console.Write("Enter Credit Hours: ");
             int creditHours = int.Parse(Console.ReadLine());
+            //validation using while loop
+              while (creditHours<0)
+            {
+                Console.WriteLine("invalid credit hours");
+                creditHours =  Int32.Parse(Console.ReadLine());
+            }
 
             Course course = new Course(courseCode, courseName, facultyId, creditHours);
             courses.Add(course);
@@ -169,18 +207,48 @@ namespace StudentRegistrationSystem
         {
             Console.Write("Enter Faculty ID: ");
             string facultyId = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(facultyId))
+            {
+                Console.WriteLine("The faculty id should not be empty");
+                facultyId = Console.ReadLine();
+            }
 
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(firstName))
+            {
+                Console.WriteLine("The FirstName should not be empty");
+                firstName = Console.ReadLine();
+            }
 
             Console.Write("Enter Last Name: ");
             string lastName = Console.ReadLine();
+            //validation using while loop
+            while (string.IsNullOrEmpty(lastName))
+            {
+                Console.WriteLine("The lastName should not be empty");
+                lastName = Console.ReadLine();
+            }
 
             Console.Write("Enter Email: ");
             string email = Console.ReadLine();
+            //validation using while loop
+            while (string.IsNullOrEmpty(email))
+            {
+                Console.WriteLine("The Email should not be empty");
+                email = Console.ReadLine();
+            }
 
             Console.Write("Enter Phone Number: ");
             string phoneNumber = Console.ReadLine();
+            //validation using while loop
+              while (string.IsNullOrEmpty(phoneNumber))
+            {
+                Console.WriteLine("The phone number should not be empty");
+                phoneNumber = Console.ReadLine();
+            }
 
             Faculty faculty = new Faculty(facultyId, firstName, lastName, email, phoneNumber);
             faculties.Add(faculty);
@@ -192,15 +260,40 @@ namespace StudentRegistrationSystem
         {
             Console.Write("Enter Program Code: ");
             string programCode = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(programCode))
+            {
+                Console.WriteLine("The program code should not be empty");
+                programCode = Console.ReadLine();
+            }
 
             Console.Write("Enter Program Name: ");
             string programName = Console.ReadLine();
+            //validation using while loop
+            while (string.IsNullOrEmpty(programName))
+            {
+                Console.WriteLine("The program name should not be empty");
+                programName = Console.ReadLine();
+            }
 
             Console.Write("Enter Credentials: ");
             string credentials = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(credentials))
+            {
+                Console.WriteLine("The redentials should not be empty");
+                credentials = Console.ReadLine();
+            }
 
             Console.Write("Is this a degree program? (Y/N): ");
             string isDegreeProgram = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(isDegreeProgram))
+            {
+                Console.WriteLine("Invalid input");
+                Console.Write("Is this a degree program? (Y/N): ");
+                isDegreeProgram = Console.ReadLine();
+            }
 
             CollegeProgram program = null;
             if (isDegreeProgram.ToUpper() == "Y")
@@ -221,19 +314,38 @@ namespace StudentRegistrationSystem
         {
             Console.Write("Enter Student ID: ");
             int studentId = int.Parse(Console.ReadLine());
+            //validation using while loop
+             while (studentId <= 0)
+            {
+                Console.WriteLine("The student id is invalid");
+                studentId = Int32.Parse(Console.ReadLine());
+
+            }
 
             Console.Write("Enter Course Code: ");
             string courseCode = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(courseCode))
+            {
+                Console.WriteLine("The course code should not be empty");
+                courseCode = Console.ReadLine();
+            }
 
             Console.Write("Enter Section Number: ");
             string sectionNumber = Console.ReadLine();
+            //validation using while loop
+             while (string.IsNullOrEmpty(sectionNumber))
+            {
+                Console.WriteLine("The section number should not be empty");
+                sectionNumber = Console.ReadLine();
+            }
 
             Enrolment enrolment = new Enrolment(studentId, courseCode, sectionNumber);
             enrolments.Add(enrolment);
 
             Console.WriteLine("Student enrolled successfully.");
         }
-
+//function to display the student details
         private void DisplayAllStudents()
         {
             Console.WriteLine("===== All Students =====");
@@ -243,6 +355,7 @@ namespace StudentRegistrationSystem
                 Console.WriteLine("----------------------");
             }
         }
+//function to display the course details
 
         private void DisplayAllCourses()
         {
@@ -253,6 +366,7 @@ namespace StudentRegistrationSystem
                 Console.WriteLine("----------------------");
             }
         }
+//function to display the faculty details
 
         private void DisplayAllFaculties()
         {
@@ -263,6 +377,7 @@ namespace StudentRegistrationSystem
                 Console.WriteLine("----------------------");
             }
         }
+//function to display the program details
 
         private void DisplayAllPrograms()
         {
@@ -273,6 +388,7 @@ namespace StudentRegistrationSystem
                 Console.WriteLine("----------------------");
             }
         }
+//function to display the  details of courses taken up by students
 
         private void DisplayCoursesTakenByStudent()
         {
@@ -307,6 +423,7 @@ namespace StudentRegistrationSystem
                 }
             }
         }
+//function to display the courses taught by the faculty d
 
         private void DisplayCoursesTaughtByFaculty()
         {
@@ -323,7 +440,7 @@ namespace StudentRegistrationSystem
                 }
             }
         }
-
+//function to display the details of students enrolled in programs
         private void DisplayStudentsInProgram()
         {
             Console.Write("Enter Program Code: ");
