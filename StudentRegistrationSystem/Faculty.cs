@@ -10,7 +10,7 @@ namespace StudentRegistrationSystem
     //faculty class
     public class Faculty
     {
-//declaring variables for storing faculty id ,first name,last name email and phone
+//declaring fields for storing faculty id ,first name,last name email and phone
         private string faultyId;
 
         private string firstName;
